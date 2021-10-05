@@ -10,7 +10,7 @@ const categoryNames = ['мясные', 'веганские', 'гриль', 'Ос
 const sortItems = [
     { name: 'популярности', type: 'popular', order: 'desc' },
     { name: 'цене', type: 'price', order: 'desc' },
-    { name: 'алфавит', type: 'name', order: 'asc' },
+    { name: 'алфавиту', type: 'name', order: 'asc' },
 ]
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
     const {category, sortBy} = useSelector(({filters}) => filters)
 
     React.useEffect(() => {
-        dispatch(fetchPizzas())
+        dispatch(fetchPizzas(sortBy, category))
     }, [category, sortBy, dispatch])
 
     const onSelectCategory = React.useCallback((index) => {
